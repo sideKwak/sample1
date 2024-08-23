@@ -11,14 +11,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 15%; 
+  height: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.7);
+  background: transparent;
 }
 
 .logo img {
@@ -27,21 +27,44 @@
 }
 
 .navbar {
-  flex: 1;
-  text-align: right;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 3; /* 메뉴 버튼이 슬라이드보다 위에 표시되도록 설정 */
 }
 
 .nav-links {
   list-style: none;
-  display: inline-flex;
-  gap: 20px;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -100%;
   height: 100%;
+  width: 80%; /* 슬라이드 메뉴의 너비를 80%로 설정 */
+  max-width: 600px; /* 최대 너비를 600px로 설정 */
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center;
+  padding: 0; /* 위아래 패딩을 제거 */
+  margin: 0; /* 마진 제거 */
+  transition: right 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.nav-links.open {
+  right: 0;
 }
 
 .nav-links li {
+  margin: 20px 0;
+  color: white;
   cursor: pointer;
 }
 
@@ -118,7 +141,10 @@ video {
   }
 
   .nav-links {
-    gap: 10px; /* 작은 화면에서 링크 간격 축소 */
+    width: 90%; /* 작은 화면에서 슬라이드 메뉴 너비 조정 */
+    max-width: 350px; /* 최대 너비를 350px로 설정 */
+    padding: 0;
+    margin: 0;
   }
 
   .hero-content h1 {
@@ -148,7 +174,10 @@ video {
   }
 
   .nav-links {
-    gap: 5px; /* 더 작은 화면에서 링크 간격 축소 */
+    width: 100%; /* 더 작은 화면에서 슬라이드 메뉴 너비 조정 */
+    max-width: 350px; /* 최대 너비를 350px로 설정 */
+    padding: 0;
+    margin: 0;
   }
 
   .hero-content h1 {
