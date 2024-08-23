@@ -15,8 +15,9 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <div className="logo">
-          <img src={logo} alt="HYOSUNG INC Logo" />
+        <div className="logo-container">
+          <img src={logo} alt="HYOSUNG INC Logo" className="logo" />
+          <span className="company-name">DH TEXTILE</span>
         </div>
         <nav className="navbar">
           <img
